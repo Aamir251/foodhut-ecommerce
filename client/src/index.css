@@ -8,7 +8,7 @@
   margin: 0;
 }
 :root {
-  --bg-primary : #FBFBFB;
+  --bg-primary : #F9F9F9;
   --secondary: #F59945;
   --primary: #364547;
 }
@@ -61,3 +61,17 @@ section {
   z-index: -1;
   clip-path: polygon(0 0, 0% 100%, 65% 50%);
 }
+
+.product-bg {
+  border-radius: 1.5rem;
+  background: linear-gradient(180deg, #FAF4F4 2.01%, #F5F1F1 97.77%);
+  /* box-shadow: 0px 0px 13px 0px rgba(141,135,135,0.75); */
+
+}
+
+.product-img {
+max-height: 150px;
+
+}
+
+
