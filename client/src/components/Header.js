@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -9,13 +10,10 @@ const Header = () => {
             <div className="relative flex justify-between  lg:static xs:w-full md:w-full lg:w-auto">
               <div className='flex'>
                 <img src="images/logo.png" alt="Page logo" className="h-10 pr-3" />
-                <a
-                  className="text-lg font-bold leading-relaxed inline-block py-2 whitespace-nowrap uppercase logo"
-                  href="#pablo"
-                >
+                <Link to="/" className="text-lg font-bold leading-relaxed inline-block py-2 whitespace-nowrap uppercase logo">
                   Food Hub
                   <div className='underline bg-secondary'></div>
-                </a>
+                </Link>                  
               </div>
               <button
                 className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
