@@ -2,7 +2,7 @@ import React from 'react';
 
 const Features = () => {
   return  <>
-  <section className='features relative items-center' >
+  <section className='features relative mt-12 items-center' >
     <div className='absolute triangle-bg'></div>
     <h3 className='text-3xl text-center font-bold pb-2'>D<span className='text-secondary'>elights</span> </h3>
     <div className='underline bg-primary m-auto w-1/5'></div>

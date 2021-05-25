@@ -34,21 +34,21 @@ h3 {
 nav {
   z-index: 1000;
 }
-section {
-  height: 70vh
-}
-.nav-bg {
-  /* background-color: #ebebeb; */
-  background-color: var(--secondary)
+
+.main-section div {
+  height:min-content;
+  top:25%;
+  bottom: 0;
+  background-color: rgba(245, 245, 245, 0.459);
+  left: 35%;
 }
 
-.circle-background {
-  clip-path: circle(40% at 0 50%);
-  background-color: var(--secondary);
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 65vw
+.main-bg {
+  max-height: 80vh;
+}
+
+.nav-bg {
+  background-color: var(--secondary)
 }
 
 .features {
@@ -75,3 +75,13 @@ max-height: 150px;
 }
 
 
+@media (max-width : 600px) {
+  section {
+    height: 55vh
+  }
+  .main-section div {
+    top: 20%;
+    left: 30%;
+  }
+  
+}

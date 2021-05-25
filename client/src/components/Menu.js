@@ -19,9 +19,9 @@ const Menu = () => {
     
     return <section>
         <Categories setCurrentCategory={setCurrentCategory} products={products} setItems={setItems} currentCategory={currentCategory} allCategories={allCategories} />
-        <main className='grid grid-cols-2 gap-5 pt-5'>
+        <main className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-5'>
         {items.map((product) => {
-            return <Product product={product} />
+            return <Product key={product.id} product={product} />
         })}
         </main>
     </section>
