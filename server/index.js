@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors"
 import dotenv from 'dotenv'
 import connectDB from './config/db.js';
-import foodRoutes from "./Routes/foodRoutes.js"
+import foodRoutes from "./routes/foodRoutes.js"
 
 dotenv.config()
 app.use(cors())
@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000
 
 const startServer = async () => {
     await connectDB()
-    await app.listen(PORT, () => console.log("Server Started"))
+    app.listen(PORT, () => console.log("Server Started"))
 }
 
 startServer()
