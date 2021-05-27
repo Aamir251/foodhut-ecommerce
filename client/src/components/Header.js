@@ -9,7 +9,7 @@ const Header = () => {
           <div className="md:container w-full mx-auto flex flex-wrap items-center justify-between xs:px-3">
             <div className="relative flex justify-between  lg:static xs:w-full md:w-full lg:w-auto">
               <div className='flex'>
-                <img src="images/logo.png" alt="Page logo" className="h-10 pr-3" />
+                <img src="/images/logo.png" alt="Page logo" className="h-10 pr-3" />
                 <Link to="/" className="text-lg font-bold leading-relaxed inline-block py-2 whitespace-nowrap uppercase logo">
                   Food Hub
                   <div className='underline bg-secondary'></div>

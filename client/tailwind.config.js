@@ -8,7 +8,9 @@ module.exports = {
     colors : {
       primary : 'var(--primary)',
       secondary : 'var(--secondary)',
-      bgPrimary : 'var(--bg-primary)'
+      bgPrimary : 'var(--bg-primary)',
+      gray : 'var(--gray)',
+      lightgray : 'var(--lightgray)'
     },
     screens: {
       'xs': '360px',

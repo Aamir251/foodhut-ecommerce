@@ -11,12 +11,14 @@
   --bg-primary : #F9F9F9;
   --secondary: #F59945;
   --primary: #364547;
+  --gray : #7A7A7A;
+  --lightgray : #746F6F;
 }
 body {
   background-color: var(--bg-primary);
 }
 h1 {
-  font-family: 'poppins',sans-serif;
+  font-family: 'Poppins',sans-serif;
 }
 h3 {
   font-family: 'Raleway', sans-serif;
@@ -70,10 +72,26 @@ nav {
 }
 
 .product-img {
-max-height: 150px;
+  max-height: 150px;
+
 
 }
+.product-screen {
+  min-height: 75vh;
+  width: 90%;
+  box-shadow: 0px 0px 12px 0px rgba(133,123,123,0.75);
+}
+.product-screen img {
+  max-height: 300px;
+}
+.product-screen footer {
+  font-family: 'raleway', sans-serif;
 
+}
+.cart-icon {
+  top: 50%;
+  right: 0;
+}
 
 @media (max-width : 600px) {
   section {
