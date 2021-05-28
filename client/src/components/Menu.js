@@ -1,15 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import products from '../Foods.js';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from "react-redux"
+import productsss from '../Foods.js';
 import Categories from './Categories.js';
 import Product from './Product.js';
+import { getProducts } from "../actions/productActions";
 
 
 const Menu = () => {
 
     const [ currentCategory, setCurrentCategory ] = useState("Fast Food");
     const [ allCategories, setAllCategories ] = useState([])
-    const [ items, setItems ] = useState(products);
+    const [ items, setItems ] = useState(productsss);
 
+    const dispatch = useDispatch()
+
+    const products = useSelector((state) => state.products)
+
+    console.log(products);
+
+    useEffect(() => {
+        dispatch(getProducts())
+    },[dispatch])
 
     useEffect(() => {
         const categories = [...new Set( products.map(product => product.category))]

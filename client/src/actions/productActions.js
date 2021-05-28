@@ -5,17 +5,17 @@ import ACTIONS from "../actionTypes/actionTypes" ;
 export const getProducts = () => async(dispatch) => {
     try {
 
-        dispatch({ action = ACTIONS.GET_PRODUCTS_REQUEST })
+        dispatch({ type : ACTIONS.GET_PRODUCTS_REQUEST })
         const { data } = await  api.getProducts()
         
         dispatch({
-            action : ACTIONS.GET_PRODUCTS_SUCCESS,
+            type : ACTIONS.GET_PRODUCTS_SUCCESS,
             payload : data
         })
     } catch (error) {
         dispatch({
-            action : ACTIONS.GET_PRODUCTS_FAIL,
-            payload : error.response.data.message ? error.response.data.message : error.message
+            type : ACTIONS.GET_PRODUCTS_FAIL,
+            payload : error.message
         })
     }
 }
@@ -23,16 +23,16 @@ export const getProducts = () => async(dispatch) => {
 export const getProduct = () => async(dispatch) => {
     try {
 
-        dispatch({ action = ACTIONS.GET_PRODUCT_REQUEST })
+        dispatch({ action : ACTIONS.GET_PRODUCT_REQUEST })
         const { data } = await  api.getProduct()
         
         dispatch({
-            action : ACTIONS.GET_PRODUCT_SUCCESS,
+            type : ACTIONS.GET_PRODUCT_SUCCESS,
             payload : data
         })
     } catch (error) {
         dispatch({
-            action : ACTIONS.GET_PRODUCT_FAIL,
+            type : ACTIONS.GET_PRODUCT_FAIL,
             payload : error.response.data.message ? error.response.data.message : error.message
         })
     }
