@@ -24,7 +24,7 @@ const ProductScreen = ({match}) => {
             </footer>
             </div>
             <CartButton/>
-            <img src="/images/icons/cart.png" alt="cart items" className="absolute cart-icon"/>
+            <img src="/images/icons/cart.png" alt="cart items" className="absolute cart-icon cursor-pointer"/>
 
         </article>
     );

@@ -7,9 +7,9 @@ const Categories = ({setCurrentCategory, products, allCategories, currentCategor
         filterItems(currentCategory)
     },[])
     const filterItems = (category) => {
+        setCurrentCategory(category)
         const newItems = products.filter(p => p.category === category);
         setItems(newItems)
-        setCurrentCategory(category)
     }
     return (
         <nav className='container w-1/2 mx-auto pt-5'>

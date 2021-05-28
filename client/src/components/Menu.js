@@ -23,7 +23,7 @@ const Menu = () => {
         {items.map((product) => {
             return <Product key={product.id} product={product} />
         })}
-        <img src="/images/icons/cart.png" alt="cart items" className="absolute cart-icon"/>
+        <img src="/images/icons/cart.png" alt="cart items" className=" cursor-pointer absolute cart-icon"/>
         </main>
     </section>
 }
