@@ -22,6 +22,10 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2",
     "web-vitals": "^1.1.2"
   },
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
   "scripts": {
     "start": "craco start",
     "build": "craco build",

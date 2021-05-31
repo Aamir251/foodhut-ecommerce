@@ -20,11 +20,11 @@ export const getProducts = () => async(dispatch) => {
     }
 }
 
-export const getProduct = () => async(dispatch) => {
+export const getProduct = (id) => async(dispatch) => {
     try {
 
-        dispatch({ action : ACTIONS.GET_PRODUCT_REQUEST })
-        const { data } = await  api.getProduct()
+        dispatch({ type : ACTIONS.GET_PRODUCT_REQUEST })
+        const { data } = await  api.getProduct(id)
         
         dispatch({
             type : ACTIONS.GET_PRODUCT_SUCCESS,
@@ -33,7 +33,7 @@ export const getProduct = () => async(dispatch) => {
     } catch (error) {
         dispatch({
             type : ACTIONS.GET_PRODUCT_FAIL,
-            payload : error.response.data.message ? error.response.data.message : error.message
+            payload : error.message
         })
     }
 }

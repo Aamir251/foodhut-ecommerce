@@ -25,7 +25,7 @@ export const productReducer = (product = {}, action) => {
             return { loading : false, product : action.payload }
         
         case ACTIONS.GET_PRODUCT_FAIL:
-            return { loading : false, product : action.payload }
+            return { loading : false, error : action.payload }
             
         default:
             return product;

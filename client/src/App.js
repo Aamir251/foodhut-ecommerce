@@ -18,7 +18,8 @@ const App = () => {
     <Route exact path="/menu">
       <Menu />
     </Route>
-    <Route path="/menu/:id" children={ProductScreen}>
+    <Route path="/menu/:id">
+      <ProductScreen/>
     </Route>
     </Switch>
   </Router>

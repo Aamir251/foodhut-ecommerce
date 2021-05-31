@@ -16,10 +16,10 @@ const Categories = ({setCurrentCategory, products, allCategories, currentCategor
     }
     
     return (
-        <nav className='container w-1/2 mx-auto pt-5'>
+        <nav className='container w-1/2 xs:w-full mx-auto pt-5'>
             <ul className='flex justify-around'>
                 { allCategories && allCategories.map(category => (
-                    <li key={category} onClick={() => filterItems(category)} className='text-xl text-primary font-bold cursor-pointer'>
+                    <li key={category} onClick={() => filterItems(category)} className='md:text-xl xs:text-lg text-primary font-bold cursor-pointer'>
                         {category}
                         <div className={`${category === currentCategory && 'underline bg-secondary'  }`} ></div>
                     </li>

@@ -73,13 +73,14 @@ nav {
 
 .product-img {
   max-height: 150px;
-
-
 }
+
+
 .product-screen {
   min-height: 75vh;
   width: 90%;
   box-shadow: 0px 0px 12px 0px rgba(133,123,123,0.75);
+  animation: productScreen 0.3s ease-in-out forwards;
 }
 .product-screen img {
   max-height: 300px;
@@ -102,4 +103,9 @@ nav {
     left: 30%;
   }
   
+}
+
+@keyframes productScreen {
+  from {transform:  translateX(100%);}
+  to {transform: translateX(0);}
 }

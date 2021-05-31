@@ -26,6 +26,7 @@ const Menu = () => {
     useEffect(() => {
         const categories = products && ["All", ...new Set( products.map(product => product.category))]
         setAllCategories(categories);
+        setItems(products)
     },[products])
 
     
