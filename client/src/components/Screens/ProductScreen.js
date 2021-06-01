@@ -18,7 +18,7 @@ const ProductScreen = () => {
     const { loading, error, product } = singleProduct;
     useEffect(() => {
         dispatch(getProduct(id))
-    }, [dispatch])
+    }, [dispatch, id])
     
     const addToCartHandler = () => {
         history.push(`/cart/${id}?qty=${quantity}`)

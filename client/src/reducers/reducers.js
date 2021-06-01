@@ -47,7 +47,6 @@ export const cartReducer = (cartItems = [], action) => {
             } else {
                 return [...cartItems, item]
             }
-            break;
         case ACTIONS.CART_REMOVE_ITEM :
             // here payload will be the id
             return cartItems.filter(x => x.product !== action.payload)
