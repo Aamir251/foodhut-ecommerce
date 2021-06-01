@@ -5,6 +5,7 @@
   "type": "module",
   "main": "index.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
@@ -16,8 +17,8 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "data:import" : "node seeder.js",
-    "data:destroy" : "node seeder.js -d"
+    "data:import": "node seeder.js",
+    "data:destroy": "node seeder.js -d"
   },
   "author": "Aamir",
   "license": "ISC"

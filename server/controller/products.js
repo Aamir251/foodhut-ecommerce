@@ -1,7 +1,9 @@
 import Food from "../models/FoodModel.js"
 
-
 // To get all the products
+// desc     Fetch all products
+// route    GET /menu
+// access Public
 export const getProducts = async (req, res) => {
     try {
         const allProducts = await Food.find()
@@ -14,6 +16,9 @@ export const getProducts = async (req, res) => {
 }
 
 // To get a particular product
+// desc     Fetch Single products
+// route    GET /menu/:id
+// access   Public
 export const getProduct = async (req, res) => {
     try {
         const product = await Food.findById(req.params.id)
