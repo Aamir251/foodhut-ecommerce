@@ -21,7 +21,7 @@ const ProductScreen = () => {
     }, [dispatch])
     
     const addToCartHandler = () => {
-        history.push(`/cart/${id}/qty=${quantity}`)
+        history.push(`/cart/${id}?qty=${quantity}`)
     }
 
     return <>
