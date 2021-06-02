@@ -52,5 +52,42 @@ export const getUserProfile = async (req, res) => {
 
         }
         
+} 
 
+// desc     Register New User
+// route    POST api/users/
+// access   Public
+
+export const registerUser = async (req, res) => {
+    
+    const { name, email, password } = req.body
+
+    const userExists = await User.findOne({email})
+
+
+    if (userExists) {
+        res.status(400) //400 means a bad Request
+        throw new Error("User Already Exists")
+    }
+
+    const newUser = await User.create({
+        name,
+        email,
+        password
+    })      //Here, the password is unecrypted. To fix this we create a middleware in the userModel which automatically encrypts password as soon someone registers
+
+    if (newUser) {      //Means new user was created
+        res.status(201).json({      //201 means something was created
+            _id : newUser._id,
+            name : newUser.name,
+            email : newUser.email,
+            isAdmin : newUser.isAdmin,
+            token : generateToken(newUser._id)
+        })     //We send these as JSON because we want to login in the user as soon as he registers
+
+    } else {
+        res.status(400)
+        throw new Error("Invalid User Data")
+    }
+    
 } 
