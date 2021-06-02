@@ -1,4 +1,5 @@
-import User from "../models/userModel.js";
+import User from "../models/userModel.js"
+import generateToken from '../utils/generateToken.js'
 
 // desc     Authenticate User and get Token
 // route    POST api/users/login
@@ -12,11 +13,11 @@ export const authUser = async (req, res) => {
 
         if (user && await user.matchPassword(password)) {
             res.json({
-                id : user._id,
+                _id : user._id,
                 name : user.name,
                 email : user.email,
                 isAdmin : user.isAdmin,
-                token : null
+                token : generateToken(user._id)
             })
         } else {
             res.status(401)
@@ -28,3 +29,28 @@ export const authUser = async (req, res) => {
         res.status(404).json({ message : error.message })
     }
 }
+
+// desc     Get User Profile
+// route    POST api/users/login
+// access   Public
+
+export const getUserProfile = async (req, res) => {
+    
+        const user = await User.findById(req.user._id)
+
+        if (user) {
+            res.json({
+                _id : user._id,
+                name : user.name,
+                email : user.email,
+                isAdmin : user.isAdmin,
+            }) 
+        } else {
+            res.status(404)
+
+            throw new Error("User Not Found")
+
+        }
+        
+
+} 
