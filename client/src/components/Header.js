@@ -1,8 +1,21 @@
-import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom';
+import { logout } from '../actions/userActions';
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const dispatch = useDispatch()
+  const userLogin = useSelector(state => state.userLogin)
+  const history = useHistory()
+  const { userInfo } = userLogin;
+
+  const logOutHandler = () => {
+    dispatch(logout())
+    history.push("/")
+  }
+
   return (
     <header>
       <nav className="relative flex flex-wrap items-center justify-between h-10 py-3 mb-3 ">
@@ -47,15 +60,18 @@ const Header = () => {
                     <i className="fas fa-shopping-cart text-lg leading-lg"></i><span className="ml-2">Cart</span>
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link
+                {userInfo ? <li className="nav-item"><Link className="px-3 py-2 flex items-center text-xs capitalize font-bold leading-snug hover:opacity-75" to="/profile">
+                    <i className="fas fa-user text-lg leading-lg"></i><span className="ml-2">{userInfo.name}</span></Link>
+                </li> : <li>
+                <Link
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
                     to="/login"
                   >
                     <i className="fas fa-heart text-lg leading-lg  opacity-75"></i><span className="ml-2">Login</span>
                   </Link>
-                </li>
-
+                  </li>}
+                {userInfo && <li className="nav-item cursor-pointer" onClick={logOutHandler}><span className="px-3 py-2 flex items-center text-xs capitalize font-bold leading-snug hover:opacity-75"><i className="fas fa-sign-out-alt text-lg leading-lg  opacity-75"></i>LOGOUT</span>
+                </li>}
               </ul>
             </div>
           </div>

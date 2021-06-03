@@ -14,20 +14,20 @@ const LoginScreen = () => {
     const dispatch = useDispatch()
     const redirect = location.search ? location.search.split("=")[1] : "/"
 
-    const userLogin = useSelector(state => state.userLogin)
-    const { loading, error, userInfo } = userLogin
+    const userLogin = useSelector((state) => state.userLogin);
 
-    const submitHandler = (e) => {
-        e.preventDefault()
-        dispatch(login(email, password))
-    }
+    const { loading, error, userInfo } = userLogin;
 
     useEffect(() => {
         if (userInfo) {
             history.push(redirect)
         }
-        
-    }, [history, userInfo, redirect]);
+    },[history, redirect, userInfo])
+
+    const submitHandler = (e) => {
+        e.preventDefault()
+        dispatch(login(email, password))
+    }
 
     return (
         <form onSubmit={submitHandler}>

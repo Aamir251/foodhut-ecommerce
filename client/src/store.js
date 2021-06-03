@@ -14,11 +14,11 @@ const rootReducer = combineReducers({
 
 
 const initialCartItems = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
-const initialUserInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {}
+const initialUserInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
 
 const initialState = {
     cart : initialCartItems,
-    userLogin : initialUserInfo
+    userLogin : {userInfo : initialUserInfo}
 }
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
