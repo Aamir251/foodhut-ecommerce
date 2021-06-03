@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Menu from './components/Menu';
 import ProductScreen from './components/Screens/ProductScreen';
 import CartScreen from './components/Screens/CartScreen';
+import LoginScreen from './components/Screens/LoginScreen';
 
 const App = () => {
   return <Router>
@@ -24,6 +25,9 @@ const App = () => {
     </Route>
     <Route path="/cart/:id?">
       <CartScreen/>
+    </Route>
+    <Route path="/login">
+      <LoginScreen/>
     </Route>
     </Switch>
   </Router>

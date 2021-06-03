@@ -32,28 +32,28 @@ const Header = () => {
             >
               <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
-                    href="#pablo"
+                    to="/menu"
                   >
                     <i className="fas fa-utensils text-lg leading-lg  opacity-75"></i><span className="ml-2">Menu</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug  hover:opacity-75"
-                    href="#pablo"
+                    to="/cart"
                   >
                     <i className="fas fa-shopping-cart text-lg leading-lg"></i><span className="ml-2">Cart</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug hover:opacity-75"
-                    href="#pablo"
+                    to="/login"
                   >
-                    <i className="fas fa-heart text-lg leading-lg  opacity-75"></i><span className="ml-2">Wish List</span>
-                  </a>
+                    <i className="fas fa-heart text-lg leading-lg  opacity-75"></i><span className="ml-2">Login</span>
+                  </Link>
                 </li>
 
               </ul>

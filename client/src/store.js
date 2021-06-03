@@ -1,19 +1,26 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux"
 import thunk from "redux-thunk"
 import { productsReducer, productReducer, cartReducer } from "./reducers/reducers.js";
+import { userReducer } from "./reducers/userReducers.js";
+
+
 
 const rootReducer = combineReducers({
     productsList : productsReducer,
     singleProduct : productReducer,
-    cart : cartReducer
+    cart : cartReducer,
+    userLogin : userReducer
 })
 
 
 const initialCartItems = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+const initialUserInfo = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : {}
 
 const initialState = {
-    cart : initialCartItems
+    cart : initialCartItems,
+    userLogin : initialUserInfo
 }
+
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
