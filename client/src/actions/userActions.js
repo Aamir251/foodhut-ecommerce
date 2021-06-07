@@ -38,3 +38,39 @@ export const logout = () => async(dispatch) => {
         type : ACTIONS.USER_LOGOUT,
     })
 }
+
+// User Registration
+
+export const register = (name, email, password) => async(dispatch) => {
+    try {
+        dispatch({
+            type : ACTIONS.USER_REGISTER_REQUEST
+        })
+
+        const config = {
+            headers : {
+                'Content-Type' : 'application/json'
+            }
+        }
+
+        const { data } = await api.register(name, email, password, config)
+        dispatch({
+            type : ACTIONS.USER_REGISTER_SUCCESS,
+            payload : data
+        })
+
+        //To Automatically login the user on registration, we dispatch the login reducer too
+        dispatch({
+            type : ACTIONS.USER_LOGIN_SUCCESS,
+            payload : data
+        })
+
+        localStorage.setItem('userInfo', JSON.stringify(data))
+
+    } catch (error) {
+        dispatch({
+            type : ACTIONS.USER_REGISTER_FAIL,
+            payload : error.message
+        })
+    }
+}

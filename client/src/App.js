@@ -6,6 +6,7 @@ import Menu from './components/Menu';
 import ProductScreen from './components/Screens/ProductScreen';
 import CartScreen from './components/Screens/CartScreen';
 import LoginScreen from './components/Screens/LoginScreen';
+import RegisterScreen from './components/Screens/RegisterScreen';
 
 const App = () => {
   return <Router>
@@ -28,6 +29,9 @@ const App = () => {
     </Route>
     <Route path="/login">
       <LoginScreen/>
+    </Route>
+    <Route path="/register">
+      <RegisterScreen/>
     </Route>
     </Switch>
   </Router>

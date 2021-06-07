@@ -21,3 +21,21 @@ export const userReducer = (state = {}, action) => {
     }
 
 }
+
+export const userRegisterReducer = (state = {}, action) => {
+    switch (action.type) {
+
+        case ACTIONS.USER_REGISTER_REQUEST:
+            return { loading : true }
+        
+        case ACTIONS.USER_REGISTER_SUCCESS: 
+            return { loading : false, userInfo : action.payload}
+        
+        case ACTIONS.USER_REGISTER_FAIL:
+            return { loading : false, error : action.payload }
+
+        default:
+            return state;
+    }
+
+}

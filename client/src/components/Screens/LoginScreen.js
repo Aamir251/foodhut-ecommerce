@@ -31,10 +31,10 @@ const LoginScreen = () => {
     return (
         <section className="login-screen w-full relative pt-5 flex justify-center ">
             <img className='w-full absolute top-0' src='/images/formbackground.jpg' alt='form background'/>
-            <form className='flex flex-col justify-center px-5 my-auto' onSubmit={submitHandler}>
+            <form className='flex flex-col justify-center px-5 my-auto w-80' onSubmit={submitHandler}>
                 <h1 className='text-center text-2xl text-primary'>Login</h1>
                 <label className='text-xl pb-2'>Email</label>
-                <input type="email" className='outline-none px-2 py-1 rounded-md w-60' placeholder="Enter email"
+                <input type="email" className='outline-none px-2 py-1 rounded-md' placeholder="Enter email"
                     onChange= {(e) => setEmail(e.target.value)} value={email} />
                 
                 <label className='text-xl pt-3 pb-1'>Password</label>
