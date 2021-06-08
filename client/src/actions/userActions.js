@@ -74,3 +74,35 @@ export const register = (name, email, password) => async(dispatch) => {
         })
     }
 }
+
+// Getting user details, we will need the token here 
+
+export const getUserDetails = (id) => async(dispatch, getState) => {
+    try {
+        dispatch({
+            type : ACTIONS.USER_DETAILS_REQUEST
+        })
+
+        const { userLogin : { userInfo }} = getState()
+
+        const config = {
+            headers : {
+                'Content-Type' : 'application/json',
+                Authorization : `Bearer ${userInfo.token}`
+            }
+        }
+
+        const { data } = await api.getUserDetails(id, config)
+        
+        dispatch({
+            type : ACTIONS.USER_DETAILS_SUCCESS,
+            payload : data
+        })
+
+    } catch (error) {
+        dispatch({
+            type : ACTIONS.USER_DETAILS_FAIL,
+            payload : error.message
+        })
+    }
+}

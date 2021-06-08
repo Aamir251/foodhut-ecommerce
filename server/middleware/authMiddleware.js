@@ -11,7 +11,7 @@ export const protect = async (req, res, next) => {
             const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
             // We are setting this user in the req so we can access it in every route.
-            // The select method ensures that the password is returned and set into the req.user
+            // The select method ensures that the password is not returned and set into the req.user
             req.user = await User.findById(decoded.id).select("-password")
 
             next()

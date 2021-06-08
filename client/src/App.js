@@ -7,6 +7,7 @@ import ProductScreen from './components/Screens/ProductScreen';
 import CartScreen from './components/Screens/CartScreen';
 import LoginScreen from './components/Screens/LoginScreen';
 import RegisterScreen from './components/Screens/RegisterScreen';
+import ProfileScreen from './components/Screens/ProfileScreen';
 
 const App = () => {
   return <Router>
@@ -29,6 +30,9 @@ const App = () => {
     </Route>
     <Route path="/login">
       <LoginScreen/>
+    </Route>
+    <Route path="/profile">
+      <ProfileScreen/>
     </Route>
     <Route path="/register">
       <RegisterScreen/>
