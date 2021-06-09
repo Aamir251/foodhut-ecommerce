@@ -16,6 +16,7 @@
 }
 body {
   background-color: var(--bg-primary);
+  overflow-x: hidden;
 }
 h1 {
   font-family: 'Poppins',sans-serif;
@@ -28,13 +29,70 @@ h3 {
   font-family: "Poppins", sans-serif;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
+/* Home Section */
+main {
+  height: 100vh;
+  width: 100vw;
+  
+}
+main>img {
+  width: 100%;
+  height: 100%;
+}
+article div {
+  height: 50%;
+}
+article h3 {
+  color: #d6d2d6
+}
+.main-img {
+  width: 75%;
+}
+.btn {
+  background-color: #211F1C;
+  color: whitesmoke;
+  padding: 0.5rem 0.6rem;
+  border-radius: 5px;
+  width: 100px;
+}
+.glass-container {
+  width: 95vw;
+  height: 80%;
+  margin: auto;
+  min-height: 460px;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(11px);
+  border-radius: 10px;
+}
 .underline {
   height:3px;
 }
-
+.circle {
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  border-radius: 100%;
+  z-index: 0;
+}
+.circle:nth-child(3) {
+  background: rgba(43, 51, 226, 0.62);
+  left: 5rem;
+  top: 14rem;
+}
+.circle:nth-child(2) {
+  background: rgba(255, 88, 35, 0.62);
+  right: 25%;
+  top: 5rem;
+}
 nav {
   z-index: 1000;
+}
+nav ul {
+  max-width: 400px;
+  font-family: "poppins", sans-serif;
 }
 
 .main-section div {
@@ -118,8 +176,8 @@ form input:focus {
 
 }
 @media (max-width : 600px) {
-  section {
-    height: 55vh
+  main {
+    height: 85vh;
   }
   .main-section div {
     top: 20%;

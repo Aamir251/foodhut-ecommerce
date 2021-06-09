@@ -18,7 +18,19 @@ const Header = () => {
 
   return (
     <header>
-      <nav className="relative flex flex-wrap items-center justify-between h-10 py-3 mb-3 ">
+      <nav className='w-screen absolute'>
+        <ul className='xs:text-xs flex justify-between ml-auto pt-2 pr-10 text-sm text-center items-center'>
+          <Link to="/"><li>Home</li></Link>
+          <Link className='btn' to="/menu"><li>Shop Now</li></Link>
+          {userInfo ? <Link to="/profile"><li>{userInfo.name}</li></Link> : 
+            <Link to="/login">Sign In</Link>
+          }
+          <Link to="/cart"><li>Cart</li></Link>
+          {userInfo && <Link onClick={logOutHandler}>Log Out</Link>}
+        </ul>
+      </nav>
+
+      {/* <nav className=" flex flex-wrap items-center justify-between h-10 py-3 mb-3 ">
           <div className="md:container w-full mx-auto flex flex-wrap items-center justify-between xs:px-3">
             <div className="relative flex justify-between  lg:static xs:w-full md:w-full lg:w-auto">
               <div className='flex'>
@@ -75,7 +87,7 @@ const Header = () => {
               </ul>
             </div>
           </div>
-        </nav>
+        </nav> */}
     </header>
   )
 }

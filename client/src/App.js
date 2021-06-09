@@ -14,10 +14,8 @@ const App = () => {
     <Header />
     <Switch>
     <Route exact path="/">
-      <main className='pt-3'>
         <Home/>
-      </main>
-      <Features/>
+        <Features/>
     </Route>
     <Route exact path="/menu">
       <Menu />
