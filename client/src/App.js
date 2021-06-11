@@ -8,6 +8,10 @@ import CartScreen from './components/Screens/CartScreen';
 import LoginScreen from './components/Screens/LoginScreen';
 import RegisterScreen from './components/Screens/RegisterScreen';
 import ProfileScreen from './components/Screens/ProfileScreen';
+import ShippingScreen from './components/Screens/ShippingScreen';
+import CheckOutSteps from './components/CheckOutSteps';
+import PaymentScreen from './components/Screens/PaymentScreen';
+import PlaceOrderScreen from './components/Screens/PlaceOrderScreen';
 
 const App = () => {
   return <Router>
@@ -35,6 +39,18 @@ const App = () => {
     <Route path="/register">
       <RegisterScreen/>
     </Route>
+    <Route path="/shipping">
+      <ShippingScreen/>
+    </Route>
+    
+    <Route path="/payment">
+      <PaymentScreen/>
+    </Route>
+    <Route path="/placeorder">
+      <PlaceOrderScreen />
+    </Route>
+   
+    
     </Switch>
   </Router>
 }

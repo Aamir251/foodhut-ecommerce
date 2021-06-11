@@ -106,3 +106,33 @@ export const getUserDetails = (id) => async(dispatch, getState) => {
         })
     }
 }
+
+
+export const updateUserProfile = (user) => async(dispatch, getState) => {
+    try {
+        dispatch({
+            type : ACTIONS.USER_UPDATE_REQUEST
+        })
+
+        const { userLogin : { userInfo }} = getState()
+
+        const config = {
+            headers : {
+                'Content-Type' : 'application/json',
+                Authorization : `Bearer ${userInfo.token}`
+            }
+        }
+        
+        const { data } = await api.updateUserProfile(user, config)
+        dispatch({
+            type : ACTIONS.USER_UPDATE_SUCCESS,
+            payload : data
+        })
+
+    } catch (error) {
+        dispatch({
+            type : ACTIONS.USER_UPDATE_FAIL,
+            payload : error.message
+        })
+    }
+}

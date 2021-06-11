@@ -26,7 +26,7 @@ const Header = () => {
             <Link to="/login">Sign In</Link>
           }
           <Link to="/cart"><li>Cart</li></Link>
-          {userInfo && <Link onClick={logOutHandler}>Log Out</Link>}
+          {userInfo && <li onClick={logOutHandler}>Log Out</li>}
         </ul>
       </nav>
 

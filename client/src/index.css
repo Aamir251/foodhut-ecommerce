@@ -67,6 +67,10 @@ article h3 {
   -webkit-backdrop-filter: blur(11px);
   border-radius: 10px;
 }
+form.glass-container{
+  max-width: 500px;
+  min-width: 250px;
+}
 .underline {
   height:3px;
 }
@@ -86,6 +90,25 @@ article h3 {
   background: rgba(255, 88, 35, 0.62);
   right: 25%;
   top: 5rem;
+}
+.form-container {
+  height: min-content;
+  z-index: 50;
+}
+.login-screen .circle {
+  right: 20%;
+}
+.login-screen .circle:nth-of-type(2) {
+  left:5%
+}
+label {
+  width: 60%;
+}
+form input {
+background: rgba(202, 230, 255, 0.47);
+width: 60%;
+border-radius: 5px;
+
 }
 nav {
   z-index: 1000;
@@ -125,7 +148,6 @@ nav ul {
 .product-bg {
   border-radius: 1.5rem;
   background: linear-gradient(180deg, #FAF4F4 2.01%, #F5F1F1 97.77%);
-  /* box-shadow: 0px 0px 13px 0px rgba(141,135,135,0.75); */
 
 }
 
@@ -156,6 +178,7 @@ nav ul {
   z-index: -1000;
   height: 100%;
 }
+
 .cart-icon {
   top: 50%;
   right: 0;
@@ -166,13 +189,21 @@ form {
   box-shadow: 0px 4px 10px 2px rgba(86, 72, 72, 0.25);
 
 }
-form input {
-  transition: border-bottom 0.5s ease;
-  border-bottom: 2px solid var(--bg-primary);
-  
+
+
+.skin-bg {
+  z-index: -1;
+  background-color: #FACFC6;
+  clip-path: polygon(0 0, 40% 23%, 40% 80%, 0% 100%);
 }
-form input:focus {
-  border-bottom: 2px solid var(--secondary);
+
+.shipping-screen .skin-bg {
+  z-index: 0;
+}
+
+.disable {
+  cursor: not-allowed;
+  opacity: 0.5;
 
 }
 @media (max-width : 600px) {

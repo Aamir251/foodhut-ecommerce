@@ -53,5 +53,24 @@ export const cartReducer = (cartItems = [], action) => {
         default:
             return cartItems;
     }
+}
 
+export const shippingAddressReducer = (shippingAddress = {}, action) => {
+    switch(action.type) {
+        case ACTIONS.CART_SAVE_SHIPPING_ADDRESS : 
+            return action.payload
+        
+        default : 
+            return shippingAddress;
+    }
+}
+
+export const savePaymentMethodReducer = ( paymentMethod = {}, action) => {
+    switch(action.type) {
+        case ACTIONS.CART_SAVE_PAYMENT_METHOD :
+            return action.payload
+        
+        default :
+            return paymentMethod
+    }
 }
