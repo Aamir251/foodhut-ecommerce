@@ -60,7 +60,7 @@ article h3 {
   height: 80%;
   margin: auto;
   min-height: 460px;
-  z-index: 5;
+  z-index: 100;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
   backdrop-filter: blur(15px);
@@ -75,11 +75,11 @@ form.glass-container{
   height:3px;
 }
 .circle {
-  width: 180px;
-  height: 180px;
+  width: 150px;
+  height: 150px;
   position: absolute;
   border-radius: 100%;
-  z-index: 0;
+  z-index: -5;
 }
 .circle:nth-child(3) {
   background: rgba(43, 51, 226, 0.62);
@@ -206,6 +206,46 @@ form {
   opacity: 0.5;
 
 }
+
+.placeorder {
+  font-family: "Montserrat", sans-serif;
+}
+.placeorder .circle {
+  z-index: 0;
+}
+
+.placeorder .circle:nth-of-type(2){
+  background: #7A77F2;
+  left: 15%rem;
+  top: 10%
+
+}
+
+.placeorder .circle:nth-of-type(3){
+  background: rgba(212, 81, 233, 0.65);
+  right: 15%;
+  bottom: 40%;
+
+}
+.placeorder .circle:nth-of-type(4){
+  background: rgba(81, 124, 233, 0.77);
+
+  left: 15%;
+  bottom: 10%;
+
+}
+
+.information h2 {
+  color: #251B1B;
+}
+.information p {
+  color : #251F30
+}
+.summary ul {
+  width: 70%;
+  margin: 0 auto;
+}
+
 @media (max-width : 600px) {
   main {
     height: 85vh;

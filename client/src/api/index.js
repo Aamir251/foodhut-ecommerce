@@ -15,3 +15,7 @@ export const register = (name, email, password, config) => axios.post('http://lo
 export const getUserDetails = (id, config) => axios.get(`http://localhost:5000/users/${id}`, config)
 
 export const updateUserProfile = (user, config) => axios.put(`http://localhost:5000/users/profile`, user, config)
+
+export const createOrder = (order, config) => axios.post(`http://localhost:5000/orders`, order, config)
+
+export const getOrderDetails = (orderId, config) => axios.get(`http://localhost:5000/orders/${orderId}`, config)

@@ -73,7 +73,7 @@ const ProfileScreen = () => {
                 
             </form>
             <div className='circle'></div>
-                <div className='circle'></div>
+            <div className='circle'></div>
             </div>
             <div className='absolute w-screen h-screen skin-bg'></div>
         </section>

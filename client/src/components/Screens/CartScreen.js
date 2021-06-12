@@ -24,7 +24,7 @@ const CartScreen = () => {
     }
 
     const proceedToCheckout = () => {
-        history.push("login?redirect=shipping")
+        history.push("/login?redirect=shipping")
     }
 
     const ProductItem = ({item}) => {

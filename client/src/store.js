@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux"
 import thunk from "redux-thunk"
+import { orderCreateReducer, orderDetailsReducer } from "./reducers/orderReducer.js";
 import { productsReducer, productReducer, cartReducer, shippingAddressReducer, savePaymentMethodReducer } from "./reducers/reducers.js";
 import { userDetailsReducer, userReducer, userRegisterReducer, userUpdateProfileReducer } from "./reducers/userReducers.js";
 
@@ -14,7 +15,9 @@ const rootReducer = combineReducers({
     userDetails : userDetailsReducer,
     userUpdateProfile : userUpdateProfileReducer,
     shippingAddress : shippingAddressReducer,
-    paymentMethod : savePaymentMethodReducer
+    paymentMethod : savePaymentMethodReducer,
+    orderCreate : orderCreateReducer,
+    orderDetails : orderDetailsReducer
 })
 
 

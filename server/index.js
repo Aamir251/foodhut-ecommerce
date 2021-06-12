@@ -5,7 +5,8 @@ import dotenv from 'dotenv'
 import connectDB from './config/db.js';
 
 import foodRoutes from "./routes/foodRoutes.js"
-import userRoutes from "./routes/userRoutes.js";
+import userRoutes from "./routes/userRoutes.js"
+import orderRoutes from "./routes/orderRoutes.js";
 
 
 const app = express()
@@ -19,6 +20,7 @@ app.use(cors())
 
 app.use("/menu", foodRoutes);
 app.use("/users", userRoutes)
+app.use("/orders", orderRoutes)
 
 const PORT = process.env.PORT || 5000
 
