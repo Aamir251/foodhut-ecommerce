@@ -19,3 +19,9 @@ export const updateUserProfile = (user, config) => axios.put(`http://localhost:5
 export const createOrder = (order, config) => axios.post(`http://localhost:5000/orders`, order, config)
 
 export const getOrderDetails = (orderId, config) => axios.get(`http://localhost:5000/orders/${orderId}`, config)
+
+export const payOrder = (orderId, paymentResult, config) => axios.put(`http://localhost:5000/orders/${orderId}/pay`, paymentResult, config)
+
+export const getClientId = () => axios.get("http://localhost:5000/config/paypal")
+
+export const myAllOrders = (config) => axios.get("http://localhost:5000/orders/myorders", config)

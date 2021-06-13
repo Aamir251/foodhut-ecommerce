@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../../actions/userActions'
+import { myAllOrders } from '../../actions/orderActions'
 
 
 const ProfileScreen = () => {
@@ -22,6 +23,9 @@ const ProfileScreen = () => {
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
+    const myOrderList = useSelector(state => state.myOrderList)
+    const { loading : loadingOrders, error: errorOrders , orders } = myOrderList;
+
     const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
     const { success } = userUpdateProfile;
 
@@ -31,6 +35,7 @@ const ProfileScreen = () => {
         } else {
             if (!user.name) {
                 dispatch(getUserDetails('profile'))
+                dispatch(myAllOrders())
             } else {
                 setName(user.name)
                 setEmail(user.email)

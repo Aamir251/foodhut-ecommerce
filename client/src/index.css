@@ -246,6 +246,10 @@ form {
   margin: 0 auto;
 }
 
+.orderstatus {
+  background-color: #a298f8;
+}
+
 @media (max-width : 600px) {
   main {
     height: 85vh;
