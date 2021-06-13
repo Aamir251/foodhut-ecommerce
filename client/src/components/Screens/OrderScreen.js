@@ -60,29 +60,29 @@ const OrderScreen = () => {
     return (
         <section className='placeorder w-full h-screen relative flex justify-center items-center'>
             <img className='w-full absolute top-0' src='/images/formbackground.jpg' alt='form background'/>
-                { order && <div className='information w-full glass-container grid md:grid-cols-2 xs:grid-cols-0 p-5'>
+                { order && <div className='information w-full glass-container grid md:grid-cols-2 xs:grid-cols-0 p-5 xs:text-xs md:text-base'>
                     <div className='pb-3'>
-                        <h2 className='font-bold text-xl'>Order {order._id}</h2>
+                        <h2 className='font-bold text-xl xs:text-xs md:text-base '>Order {order._id}</h2>
                         <hr/>
-                        <div className='flex justify-between pt-1'>
+                        <div className='flex justify-between pt-1 xs:text-xs md:text-base'>
                             <p><strong className='text-xs'>Name : </strong><span className='text-xs font-bold opacity-80'>{order.user.name}</span></p>
                             <p><strong className='text-xs'>Email : </strong><span className='text-xs'><a href={`mailto:${order.user.email}`}>{order.user.email}</a></span></p>
                         </div>
-                        <p className='text-xs pb-2'><strong>Address : </strong>{ `${order.shippingAddress.address}, ${order.shippingAddress.city}, ${order.shippingAddress.country}` }</p>
-                        <p className='orderstatus py-1 px-2'>{order.isDelivered ? <strong>Delivered on - {order.deliveredAt}</strong> : <strong>Not Delivered</strong>}</p>
+                        <p className='text-xs pb-2 xs:text-xs md:text-base'><strong>Address : </strong>{ `${order.shippingAddress.address}, ${order.shippingAddress.city}, ${order.shippingAddress.country}` }</p>
+                        <p className='orderstatus py-1 px-2 xs:text-xs md:text-base'>{order.isDelivered ? <strong>Delivered on - {order.deliveredAt}</strong> : <strong>Not Delivered</strong>}</p>
 
-                        <h2 className='font-bold text-xl'>Payment Method</h2>
-                        <p className='text-xs pb-3'>{order.paymentMethod}</p>
-                        <p className='orderstatus py-1 px-2'>{order.isPaid ? <strong>Paid on - {order.paidAt}</strong> : <strong>Not Paid</strong>}</p>
+                        <h2 className='font-bold text-xl xs:text-xs md:text-base'>Payment Method</h2>
+                        <p className='text-xs pb-3 xs:text-xs md:text-base'>{order.paymentMethod}</p>
+                        <p className='orderstatus py-1 px-2 xs:text-xs md:text-base'>{order.isPaid ? <strong>Paid on - {order.paidAt}</strong> : <strong>Not Paid</strong>}</p>
                         <hr/>
-                        <h2 className='font-bold py-3'>Order Items</h2>
+                        <h2 className='font-bold py-3 xs:text-xs md:text-base'>Order Items</h2>
                         <ul>
                             {
                             order.orderItems.length === 0 ? <h4>Your Cart Is Empty</h4> : order.orderItems.map((item, index) => {
                                 return (
                                 <li key={index} className='flex justify-between items-center'>
                                     <img src={item.image} alt={item.name} className='w-10'/>
-                                    <Link to={`/menu/${item.product}`} className='text-left font-bold text-sm'>{item.name}</Link>
+                                    <Link to={`/menu/${item.product}`} className='text-left font-bold xs:text-xs md:text-base'>{item.name}</Link>
                                     <h5 className='text-xs'>{item.qty} X {item.price} = <span className='font-bold'> Rs. {item.price * item.qty}</span></h5>
                                 </li>
                                 )

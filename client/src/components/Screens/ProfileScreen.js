@@ -53,33 +53,57 @@ const ProfileScreen = () => {
     }
 
     return (
-        <section className="login-screen w-full h-screen relative pt-5 flex justify-center items-center">
+        <section className="profile-screen relative w-full h-screen relative pt-5 flex justify-center items-center">
             <img className='w-full absolute top-0' src='/images/formbackground.jpg' alt='form background'/>
-            <div className='relative form-container'>
-            <form className='glass-container flex flex-col justify-center items-center px-5 my-auto w-80' onSubmit={submitHandler}>
-                <h2 className='text-center text-2xl text-primary'>User Profile</h2>
+            <div className='relative glass-container grid xs:grid-cols-1 md:grid-cols-2 xs:text-xs sm:text-lg'>
+            <div className='form-container w-full flex justify-center'>
+            <form className=' flex flex-col justify-center items-center px-5 my-auto w-80' onSubmit={submitHandler}>
+                <h2 className='text-center text-2xl text-primary pb-2'>User Profile</h2>
+                <hr className='w-full pb-4'/>
                 {message && <h3 className='text-center text-md text-gray'>{message}</h3>}
-                { success && <h3>Profile Updated</h3>}
-                <label className='text-sm'>Name</label>
-                <input type="text" className='outline-none px-2 py-1 mb-2 rounded-md' placeholder="Enter name"
+                { success && <h3>Profile Updated</h3> }
+                <label className='text-sm w-full'>Name</label>
+                <input type="text" className='outline-none px-2 py-1 mb-2 rounded-md w-full' placeholder="Enter name"
                     onChange= {(e) => setName(e.target.value)} value={name} />
-                <label className='text-sm'>Email</label>
-                <input type="email" className='outline-none px-2 py-1 rounded-md' placeholder="Enter email"
+                <label className='text-sm w-full'>Email</label>
+                <input type="email" className='outline-none px-2 py-1 rounded-md w-full' placeholder="Enter email"
                     onChange= {(e) => setEmail(e.target.value)} value={email} />
                 
-                <label className='text-sm pt-3 pb-1'>Password</label>
-                <input type="password" className='outline-none px-2 py-1 rounded-md mb-2' placeholder="Enter password"
+                <label className='text-sm pt-3 pb-1 w-full'>Password</label>
+                <input type="password" className='outline-none px-2 py-1 rounded-md mb-2 w-full' placeholder="Enter password"
                     onChange= {(e) => setPassword(e.target.value)} value={password} />
-                <label className='text-sm pt-3 pb-1'>Confirm Password</label>
-                <input type="password" className='outline-none px-2 py-1 rounded-md mb-2' placeholder="Enter password"
+                <label className='text-sm pt-3 pb-1 w-full'>Confirm Password</label>
+                <input type="password" className='outline-none px-2 py-1 rounded-md mb-2 w-full' placeholder="Enter password"
                     onChange= {(e) => setConfirmPassword(e.target.value)} value={confirmPassword} />
-
                 <button className='btn border-solid border-2 text-primary w-15 py-2 px-4 my-4 font-bold rounded-md text-center mx-auto' type="submit" >Update</button>
-                
             </form>
-            <div className='circle'></div>
-            <div className='circle'></div>
             </div>
+            <article className='my-orders'>
+                <h1 className='text-center text-xl pb-2'>My Orders</h1>
+                <hr className='pb-2'/>
+                <table className='w-full text-sm'>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Total</th>
+                        <th>Paid</th>
+                        <th>Delivered</th>
+                    </tr>
+                    {orders && orders.map((order) => (
+                         <tr className='text-xs' >
+                             <td>{ order._id }</td>
+                             <td>{ order.createdAt.substring(0,10) }</td>
+                             <td>Rs.{ order.totalPrice }</td>
+                             <td>{ order.isPaid ? order.paidAt.substring(0,10) : 'Not Paid' }</td>
+                             <td>{ order.isDelivered ? order.deliveredAt.substring(0,10) : 'Not Delivered' }</td>
+                             <td className='btn text-center'><Link to={`/order/${order._id}`}>Details</Link></td>
+                         </tr>   
+                    ))}
+                </table>
+            </article>
+            </div>
+            <div className='absolute circle'></div>
+            <div className='circle absolute '></div>
             <div className='absolute w-screen h-screen skin-bg'></div>
         </section>
     )
