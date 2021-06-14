@@ -8,10 +8,10 @@ import LoginScreen from './components/Screens/LoginScreen';
 import RegisterScreen from './components/Screens/RegisterScreen';
 import ProfileScreen from './components/Screens/ProfileScreen';
 import ShippingScreen from './components/Screens/ShippingScreen';
-import CheckOutSteps from './components/CheckOutSteps';
 import PaymentScreen from './components/Screens/PaymentScreen';
 import PlaceOrderScreen from './components/Screens/PlaceOrderScreen'; 
 import OrderScreen from './components/Screens/OrderScreen'; 
+import Loader from './components/Loader';
 
 const App = () => {
   return <Router>
@@ -50,6 +50,11 @@ const App = () => {
     </Route>
     <Route path="/order/:id">
       <OrderScreen/>
+    </Route>
+
+
+    <Route path="/loader">
+      <Loader />
     </Route>
    
     

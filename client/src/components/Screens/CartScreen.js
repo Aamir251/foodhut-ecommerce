@@ -30,7 +30,7 @@ const CartScreen = () => {
     const ProductItem = ({item}) => {
         return (
         // here product refers to Id
-        <article className="w-full flex flex-wrap  justify-around items-center mb-3" key={item.product}>
+        <article className="w-full flex flex-wrap product-item  justify-around items-center mb-3" key={item.product}>
         <img className="w-10" src={item.image} alt={item.name}/>
         <Link to={`/menu/${item.product}`} ><h3>{item.name}</h3></Link>
         <h5 className="text-secondary font-bold">Rs. {item.price}</h5>
@@ -43,23 +43,27 @@ const CartScreen = () => {
     </article>)
    }
 
-    return <>
-            <header className="flex justify-around items-center py-4 mb-2">
-                <h1 className='text-center text-primary text-4xl pt-3'>Shopping Cart</h1> 
-                <span className='text-primary'>Total Items - ({cart.reduce((acc, item) => acc + item.qty,0)})</span>
-                <span className='text-primary'>Total Price - <span className="text-secondary font-bold">Rs.{ cart.reduce((acc, item) => acc + item.qty * item.price ,0) }</span></span>
-                <button onClick={()=> proceedToCheckout()} className="bg-secondary font-bold text-primary text-sm px-4 py-2">Proceed To Checkout</button>
-            </header>
+    return <section className='cart-screen w-full pt-10 h-full relative'>
+        <img src="/images/formbackground.jpg" alt='background' className='absolute top-0 w-screen h-screen'/>
+            <div className='glass-container h-full'>
+                <header className="flex justify-around items-center xs:flex-col sm:flex-row py-4 mt-5">
+                    <h1 className='text-center text-primary text-2xl pt-3'>Shopping Cart</h1> 
+                    <span className='text-primary'>Total Items - ({cart.reduce((acc, item) => acc + item.qty,0)})</span>
+                    <span className='text-primary'>Total Price - <span className="text-secondary font-bold">Rs.{ cart.reduce((acc, item) => acc + item.qty * item.price ,0) }</span></span>
+                    <button onClick={()=> proceedToCheckout()} className="font-bold text-primary text-xs md:text-sm btn">Proceed To Checkout</button>
+                </header>
             
-            {cart.length ===0 ? <p>Your Cart Is Empty</p> :
-                <section className="relative px-5 lg:w-2/3 xs:w-full mx-auto">
-                    {cart.map((item) => (
-                        // Here, product means the item key
-                        <ProductItem key={item.product} item={item} />
-                    ))}
-                </section>
-            }
-    </>;
+                {cart.length ===0 ? <p>Your Cart Is Empty</p> :
+                    <section className="relative px-5 lg:w-2/3 xs:w-full mx-auto">
+                        {cart.map((item) => (
+                            // Here, product means the item key
+                            <ProductItem key={item.product} item={item} />
+                        ))}
+                </section>}
+            </div>
+            <div className='circle'></div>
+            <div className='circle'></div>
+    </section>;
 
 
 
