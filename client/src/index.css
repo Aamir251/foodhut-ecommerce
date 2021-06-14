@@ -88,13 +88,9 @@ form.glass-container{
 }
 .circle:nth-child(3) {
   background: rgba(43, 51, 226, 0.62);
-  left: 5rem;
-  top: 14rem;
 }
 .circle:nth-child(2) {
   background: rgba(255, 88, 35, 0.62);
-  right: 25%;
-  top: 5rem;
 }
 .form-container {
   height: min-content;
@@ -258,12 +254,75 @@ nav ul {
 .orderstatus {
   background-color: #a298f8;
 }
+.specials img {
+  width: 100%;
+  z-index: -50;
+}
+.specials {
+  font-family: "Poppins", sans-serif;
+}
+.specials article span {
+  color: #F59945;
+}
 
+.specials .circle:nth-of-type(2) {
+  background:#ED9442;
+  top: 15%;
+  left: 10%;
+}
+.specials .circle:nth-of-type(3) {
+  background:#F381F5;
+  bottom: 10%;
+  right: 10%;
+}
 hr {
   opacity: 0.25;
 }
+.specials article img {
+  width: 50%;
+}
 
-@media (max-width : 600px) {
+.specials article p {
+  width: 60%;
+}
+
+.features-section article img {
+  border-radius: 100%;
+  width: 80%;
+}
+.features-section .glass-container {
+  z-index: 5;
+  height: max-content;
+  margin: auto 0;
+  width: 100%;
+}
+.features-section .glass-container div {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.features-section {
+  background-color: #F9F7F7;
+  z-index: 50;
+  width: 95%;
+  margin: 0 auto;
+}
+.features-section h1,h2 {
+  color: #362B3F;
+}
+.features-section .circle {
+  z-index: -1;
+}
+.features-section .circle:nth-of-type(2) {
+  background:#ED9442;
+  top: 10%;
+  left: 25%;
+}
+.features-section .circle:nth-of-type(3) {
+  position: absolute;
+  bottom: 20%;
+  right: 25%;
+}
+@media (max-width : 640px) {
   main {
     height: 85vh;
   }
@@ -274,10 +333,43 @@ hr {
 
   .glass-container {
     height: max-content;
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
   
+  .main-img {
+    max-width: 50%;
+    margin: 1rem auto;
+  }
+  .btn {
+    margin: 1rem auto;
+  }
+  .home-screen section {
+    margin: auto 0;
+    height: 60%;
+  }
+  .home-screen article{
+    height: 100%;
+    text-align: center;
+  }
+
+  .specials article img {
+    width: 60%;
+  }
+  .specials article p {
+    width: 60%;
+  }
+  .specials .glass-container {
+    margin-top: 1rem;
+  }
+
+  .features-section .circle:nth-of-type(3) {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+  }
 }
+
+
 
 @keyframes productScreen {
   from {transform:  translateX(100%);}
