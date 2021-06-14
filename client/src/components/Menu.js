@@ -30,14 +30,19 @@ const Menu = () => {
     },[products])
 
     
-    return <section>
+    return <section className='products w-screen relative'>
+        <img src="/images/formbackground.jpg" className='absolute top-0 w-full h-full' />
         { products && <Categories setCurrentCategory={setCurrentCategory} products={products} setItems={setItems} currentCategory={currentCategory} allCategories={allCategories} />}
-        <main className='relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-5'>
+        <div className='glass-container relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-5'>
         { items && items.map((product) => {
             return <Product key={product.id} product={product} />
         })}
-        <img src="/images/icons/cart.png" alt="cart items" className=" cursor-pointer absolute cart-icon"/>
-        </main>
+        {/* <img src="/images/icons/cart.png" alt="cart items" className=" cursor-pointer absolute cart-icon"/> */}
+        </div>
+        <div className='circle'></div>
+        <div className='circle'></div>
+        <div className='circle'></div>
+        <div className='circle'></div>
     </section>
 }
 

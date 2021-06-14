@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const Product = ({product}) => {
 
     return (
-        <article className='product-bg p-3 flex flex-col justify-around items-center'>
+        <article className='product p-3 flex flex-col justify-around items-center'>
             <h3 className='text-primary font-bold text-xl'>{product.name}</h3>
             <p className='text-gray-100 text-center text-xs pt-2'> {product.shortDesc} </p>
             <Link to={`/menu/${product._id}`} >
