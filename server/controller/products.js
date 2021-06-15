@@ -4,14 +4,14 @@ import Food from "../models/FoodModel.js"
 // desc     Fetch all products
 // route    GET /menu
 // access Public
-export const getProducts = async (req, res) => {
+export const getProducts = async (req, res,next) => {
     try {
         const allProducts = await Food.find()
 
         res.status(200).json(allProducts);
 
     } catch (error) {
-        res.status(404).json({ message : error.message })
+        next(error)
     }
 }
 
