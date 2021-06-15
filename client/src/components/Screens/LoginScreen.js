@@ -3,6 +3,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { login } from '../../actions/userActions'
 import Loader from '../Loader'
+import Message from '../Message'
 
 
 const LoginScreen = () => {
@@ -36,6 +37,7 @@ const LoginScreen = () => {
             <div className='relative form-container flex justify-center items-center'>
             <form className='glass-container flex flex-col justify-center items-center px-5 my-auto w-80' onSubmit={submitHandler}>
                 <h1 className='text-center text-2xl text-primary'>Sign In</h1>
+                {error && <Message error={error} />}
                 <label className='text-xl pb-2'>Email</label>
                 <input type="email" className='outline-none px-2 py-2 rounded-md' placeholder="Enter email"
                     onChange= {(e) => setEmail(e.target.value)} value={email} />

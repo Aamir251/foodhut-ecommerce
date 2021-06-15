@@ -21,7 +21,8 @@ export const addToCart = (id, qty) => async(dispatch, getState) => {
         localStorage.setItem("cart", JSON.stringify(getState().cart))
 
     } catch (error) {
-        console.log(error);
+        dispatch({payload : error.response && error.response.data.message ? error.response.data.message : error.message})
+
     }
 }
 

@@ -248,7 +248,7 @@ nav ul {
   right: 15%;
   bottom: 15%;
 }
-.information h2 {
+.information h2,.error {
   color: #251B1B;
 }
 .information p {
