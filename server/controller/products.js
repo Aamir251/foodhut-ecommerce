@@ -19,17 +19,18 @@ export const getProducts = async (req, res) => {
 // desc     Fetch Single products
 // route    GET /menu/:id
 // access   Public
-export const getProduct = async (req, res) => {
+export const getProduct = async (req, res,next) => {
     try {
         const product = await Food.findById(req.params.id)
-
+        
         if (product) {
             res.status(200).json(product);
         } else {
-            res.status(404).json({ message : 'Product not Found'})
+            res.status(404)
+            throw new Error("Product not found")
         }
 
     } catch (error) {
-        console.log(error);
+        next(error)
     }
 }
