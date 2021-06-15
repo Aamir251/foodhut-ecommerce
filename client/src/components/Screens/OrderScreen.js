@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import  { PayPalButton } from 'react-paypal-button-v2'
 import { useSelector, useDispatch } from 'react-redux'
 import { getOrderDetails, payOrder } from "../../actions/orderActions"
 import * as api from '../../api';
 import ACTIONS from '../../actionTypes/actionTypes';
 import Loader from '../Loader';
-
+import Message from "../Message"
 const OrderScreen = () => {
 
     const [ isSdkReady, setIsSdkReady ] = useState(false)
@@ -23,10 +23,10 @@ const OrderScreen = () => {
         order.itemsPrice = addDecimal(order.orderItems.reduce((acc, item) => acc + item.price * item.qty,0))
 
     }
+
     const dispatch = useDispatch()
 
     useEffect(() => {
-
         const addPayPalScript = async () => {
             const { data : clientId} = await api.getClientId()
             const script = document.createElement('script')   
@@ -36,7 +36,6 @@ const OrderScreen = () => {
             script.onload = () => {
                 setIsSdkReady(true)
             }
-
             document.body.appendChild(script)
         }
 
@@ -61,6 +60,7 @@ const OrderScreen = () => {
     return <>
         {(loading || loadingPay) ? <Loader/> : <section className='placeorder w-full h-screen relative flex justify-center items-center'>
             <img className='w-full absolute top-0' src='/images/formbackground.jpg' alt='form background'/>
+            {error && <Message error={error}/>}
                 { order && <div className='information w-full glass-container grid md:grid-cols-2 xs:grid-cols-0 p-5 xs:text-xs md:text-base'>
                     <div className='pb-3'>
                         <h2 className='font-bold text-xl xs:text-xs md:text-base '>Order {order._id}</h2>
@@ -99,8 +99,7 @@ const OrderScreen = () => {
                             <li className='flex justify-between'><h5 className='text-xs font-bold'>Shipping</h5><span>Rs. {order.shippingPrice}</span></li>
                             <li className='flex justify-between'><h5 className='text-xs font-bold'>Tax</h5><span>Rs. {order.taxPrice}</span></li>
                             <li className='flex justify-between'><h5 className='text-xs font-bold'>TOTAL</h5><span className='font-bold'>Rs. {order.totalPrice}</span></li>
-
-                            {!order.isPaid && <PayPalButton amount={order.totalPrice} onSuccess={ successPaymentHandler } />}
+                            {!isSdkReady && <PayPalButton amount={order.totalPrice} onSuccess={ successPaymentHandler } />}
                         </ul>
                     </div>
                 </div>}

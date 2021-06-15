@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../../actions/userActions'
 import { myAllOrders } from '../../actions/orderActions'
+import Message from "../Message"
 import Loader from '../Loader'
 
 
@@ -13,10 +14,8 @@ const ProfileScreen = () => {
     const [ confirmPassword, setConfirmPassword ] = useState('')
     const [ message, setMessage ] = useState(null)
 
-    const location = useLocation()
     const history = useHistory()
     const dispatch = useDispatch()
-    const redirect = location.search ? location.search.split("=")[1] : "/"
 
     const userDetails = useSelector((state) => state.userDetails);
     const { loading, error, user } = userDetails;
@@ -54,14 +53,16 @@ const ProfileScreen = () => {
     }
 
     return <>
-        { loading ? <Loader/> : <section className="profile-screen relative w-full h-screen relative pt-5 flex justify-center items-center">
+        { loading || loadingOrders ? <Loader/> : <section className="profile-screen relative w-full h-screen relative pt-5 flex justify-center items-center">
             <img className='w-full absolute top-0' src='/images/formbackground.jpg' alt='form background'/>
             <div className='relative glass-container grid xs:grid-cols-1 md:grid-cols-2 xs:text-xs sm:text-lg'>
             <div className='form-container w-full flex justify-center'>
             <form className=' flex flex-col justify-center items-center px-5 my-auto w-80' onSubmit={submitHandler}>
                 <h2 className='text-center text-2xl text-primary pb-2'>User Profile</h2>
                 <hr className='w-full pb-4'/>
-                {message && <h3 className='text-center text-md text-gray'>{message}</h3>}
+                { error && <Message error={error} />}
+                { message && <p>{message}</p>}
+                { errorOrders && <Message error={errorOrders} />}
                 { success && <h3>Profile Updated</h3> }
                 <label className='text-sm w-full'>Name</label>
                 <input type="text" className='outline-none px-2 py-1 mb-2 rounded-md w-full' placeholder="Enter name"
@@ -92,7 +93,7 @@ const ProfileScreen = () => {
                     </tr>
                     {orders && orders.map((order) => (
                          <tr className='text-xs' >
-                             <td>{ order._id }</td>
+                             <td>{ order._id.substring(0,10) }...</td>
                              <td>{ order.createdAt.substring(0,10) }</td>
                              <td>Rs.{ order.totalPrice }</td>
                              <td>{ order.isPaid ? order.paidAt.substring(0,10) : 'Not Paid' }</td>

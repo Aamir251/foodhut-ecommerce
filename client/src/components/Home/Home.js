@@ -16,7 +16,7 @@ const Home = () => {
   return <>
   { loading ? <Loader /> : <div>
     <main className='relative home-screen flex justify-center items-center'>
-      <img src="/images/background.jpg" className='absolute top-0' />
+      <img src="/images/background.jpg" alt='background' className='absolute top-0' />
       
       <div className="circle"></div>
       <div className="circle"></div>
@@ -30,7 +30,7 @@ const Home = () => {
             </h3>
             <button className="btn"><Link to="/menu">Shop Now</Link></button>
           </div>
-          <img className='main-img' src="/images/pizza.png" />
+          <img className='main-img' alt="Pizza" src="/images/pizza.png" />
         </article>
       </section>
     </main>

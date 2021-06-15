@@ -3,7 +3,7 @@ import React from 'react';
 const Specials = () => {
     return (
         <section className='specials relative'>
-            <img src='/images/formbackground.jpg' className='absolute h-screen top-0'/>
+            <img src='/images/formbackground.jpg' alt='background' className='absolute h-screen top-0'/>
             <h3 className='text-center text-2xl font-bold py-3'>Special Delights</h3>
             <div className='glass-container relative grid md:grid-cols-2 pb-4'>
                 <article className='flex flex-col justify-center items-center'>

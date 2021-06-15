@@ -5,6 +5,7 @@ import { getProduct } from '../../actions/productActions';
 import CartButton from "../CartButton"
 import Rating from "../Rating"
 import Loader from '../Loader';
+import Message from '../Message';
 const ProductScreen = () => {
 
     const dispatch = useDispatch()
@@ -30,6 +31,7 @@ const ProductScreen = () => {
             <img src="/images/background.jpg" alt='background' className='absolute h-screen top-0 w-screen' />
                 <div className='glass-container relative pt-2 md:mt-8'>
                 <span className='absolute left-1 top-0 btn text-xs'><Link to="/menu">Back</Link></span>
+                    {error && <Message error={error} />}
                     <h2 className='text-5xl xs:text-2xl text-primary text-center font-bold'>{product.name}</h2>
                     <h4 className='text-xl xs:text-sm text-gray pt-3 text-center'>{product.shortDesc}</h4>
                     <div className='flex xs:flex-col xs:items-center lg:items-start md:flex-row'>

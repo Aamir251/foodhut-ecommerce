@@ -5,6 +5,7 @@ import Categories from './Categories.js';
 import Product from './Product.js';
 import { getProducts } from "../actions/productActions";
 import Loader from './Loader.js';
+import Message from './Message.js';
 
 
 const Menu = () => {
@@ -33,13 +34,13 @@ const Menu = () => {
     
     return <>
     {loading ? <Loader/> : <section className='products w-screen relative'>
-        <img src="/images/formbackground.jpg" className='absolute top-0 w-full h-full' />
+        <img src="/images/formbackground.jpg" alt='background' className='absolute top-0 w-full h-full' />
+        { error && <Message error = {error}/>}
         { products && <Categories setCurrentCategory={setCurrentCategory} products={products} setItems={setItems} currentCategory={currentCategory} allCategories={allCategories} />}
         <div className='glass-container relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-5'>
         { items && items.map((product) => {
             return <Product key={product.id} product={product} />
         })}
-        {/* <img src="/images/icons/cart.png" alt="cart items" className=" cursor-pointer absolute cart-icon"/> */}
         </div>
         <div className='circle'></div>
         <div className='circle'></div>

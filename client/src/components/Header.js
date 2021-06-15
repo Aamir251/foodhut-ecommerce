@@ -1,11 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom';
 import { logout } from '../actions/userActions';
 
 const Header = () => {
-  const [navbarOpen, setNavbarOpen] = useState(false);
-
   const dispatch = useDispatch()
   const userLogin = useSelector(state => state.userLogin)
   const history = useHistory()
