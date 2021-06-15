@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getOrderDetails, payOrder } from "../../actions/orderActions"
 import * as api from '../../api';
 import ACTIONS from '../../actionTypes/actionTypes';
+import Loader from '../Loader';
 
 const OrderScreen = () => {
 
@@ -57,8 +58,8 @@ const OrderScreen = () => {
         dispatch(payOrder(id, paymentResult))
     }
    
-    return (
-        <section className='placeorder w-full h-screen relative flex justify-center items-center'>
+    return <>
+        {(loading || loadingPay) ? <Loader/> : <section className='placeorder w-full h-screen relative flex justify-center items-center'>
             <img className='w-full absolute top-0' src='/images/formbackground.jpg' alt='form background'/>
                 { order && <div className='information w-full glass-container grid md:grid-cols-2 xs:grid-cols-0 p-5 xs:text-xs md:text-base'>
                     <div className='pb-3'>
@@ -106,8 +107,8 @@ const OrderScreen = () => {
                 <div className='circle absolute'></div>
                 <div className='circle absolute'></div>
                 <div className='circle absolute'></div>
-    </section>
-    );
+    </section>}
+    </>;
 }
 
 export default OrderScreen;

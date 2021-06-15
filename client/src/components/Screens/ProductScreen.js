@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProduct } from '../../actions/productActions';
 import CartButton from "../CartButton"
 import Rating from "../Rating"
+import Loader from '../Loader';
 const ProductScreen = () => {
 
     const dispatch = useDispatch()
@@ -25,7 +26,7 @@ const ProductScreen = () => {
     }
 
     return <>
-        { product && <article className="relative product-screen mx-auto p-5  flex flex-col justify-around items-center">
+        {loading ? <Loader/>  : product && <article className="relative product-screen mx-auto p-5  flex flex-col justify-around items-center">
             <img src="/images/background.jpg" alt='background' className='absolute h-screen top-0 w-screen' />
                 <div className='glass-container relative pt-2 md:mt-8'>
                 <span className='absolute left-1 top-0 btn text-xs'><Link to="/menu">Back</Link></span>

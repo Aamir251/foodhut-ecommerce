@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { login } from '../../actions/userActions'
+import Loader from '../Loader'
 
 
 const LoginScreen = () => {
@@ -29,7 +30,8 @@ const LoginScreen = () => {
     }
 
     return (
-        <section className="login-screen w-full h-screen relative pt-5 flex justify-center items-center">
+        <>
+        {loading ? <Loader/> : <section className="login-screen w-full h-screen relative pt-5 flex justify-center items-center">
             <img className='w-full absolute top-0' src='/images/formbackground.jpg' alt='form background'/>
             <div className='relative form-container flex justify-center items-center'>
             <form className='glass-container flex flex-col justify-center items-center px-5 my-auto w-80' onSubmit={submitHandler}>
@@ -52,7 +54,8 @@ const LoginScreen = () => {
                 <div className='circle'></div>
             </div>
             <div className='absolute w-screen h-screen skin-bg'></div>
-        </section>
+        </section>}
+        </>
     )
 }
 

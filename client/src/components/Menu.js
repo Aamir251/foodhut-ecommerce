@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Categories from './Categories.js';
 import Product from './Product.js';
 import { getProducts } from "../actions/productActions";
+import Loader from './Loader.js';
 
 
 const Menu = () => {
@@ -30,7 +31,8 @@ const Menu = () => {
     },[products])
 
     
-    return <section className='products w-screen relative'>
+    return <>
+    {loading ? <Loader/> : <section className='products w-screen relative'>
         <img src="/images/formbackground.jpg" className='absolute top-0 w-full h-full' />
         { products && <Categories setCurrentCategory={setCurrentCategory} products={products} setItems={setItems} currentCategory={currentCategory} allCategories={allCategories} />}
         <div className='glass-container relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-5'>
@@ -43,7 +45,8 @@ const Menu = () => {
         <div className='circle'></div>
         <div className='circle'></div>
         <div className='circle'></div>
-    </section>
+    </section>}
+    </>
 }
 
 export default Menu;

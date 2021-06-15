@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link }from 'react-router-dom';
 import Specials from './Specials';
 import Features from './Features';
+import Loader from '../Loader';
 const Home = () => {
+  const [ loading, setLoading ] = useState(true)
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+  },[])
+
   return <>
+  { loading ? <Loader /> : <div>
     <main className='relative home-screen flex justify-center items-center'>
       <img src="/images/background.jpg" className='absolute top-0' />
       
@@ -25,6 +36,8 @@ const Home = () => {
     </main>
     <Specials/>
     <Features/>
+    </div>}
+    
   </>
 }
 

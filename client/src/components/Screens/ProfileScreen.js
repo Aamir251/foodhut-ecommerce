@@ -3,6 +3,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../../actions/userActions'
 import { myAllOrders } from '../../actions/orderActions'
+import Loader from '../Loader'
 
 
 const ProfileScreen = () => {
@@ -52,8 +53,8 @@ const ProfileScreen = () => {
         }
     }
 
-    return (
-        <section className="profile-screen relative w-full h-screen relative pt-5 flex justify-center items-center">
+    return <>
+        { loading ? <Loader/> : <section className="profile-screen relative w-full h-screen relative pt-5 flex justify-center items-center">
             <img className='w-full absolute top-0' src='/images/formbackground.jpg' alt='form background'/>
             <div className='relative glass-container grid xs:grid-cols-1 md:grid-cols-2 xs:text-xs sm:text-lg'>
             <div className='form-container w-full flex justify-center'>
@@ -105,8 +106,8 @@ const ProfileScreen = () => {
             <div className='absolute circle'></div>
             <div className='circle absolute '></div>
             <div className='absolute w-screen h-screen skin-bg'></div>
-        </section>
-    )
+        </section>}
+    </>
 }
 
 export default ProfileScreen;

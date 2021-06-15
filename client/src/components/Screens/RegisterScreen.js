@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { register } from '../../actions/userActions'
+import Loader from '../Loader'
 
 
 const RegisterScreen = () => {
@@ -36,7 +37,8 @@ const RegisterScreen = () => {
     }
 
     return (
-        <section className="login-screen w-full relative pt-5 flex justify-center ">
+        <>
+        {loading ? <Loader/> : <section className="login-screen w-full relative pt-5 flex justify-center ">
             <img className='w-full absolute top-0' src='/images/formbackground.jpg' alt='form background'/>
             <form className='flex flex-col justify-center px-5 my-auto w-80' onSubmit={submitHandler}>
                 <h1 className='text-center text-2xl text-primary'>Sign Up</h1>
@@ -61,7 +63,8 @@ const RegisterScreen = () => {
                     <span className='text-primary'>Login</span></Link>
                 </p>
             </form>
-        </section>
+        </section>}
+        </>
     )
 }
 
