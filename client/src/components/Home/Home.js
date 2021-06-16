@@ -3,6 +3,7 @@ import { Link }from 'react-router-dom';
 import Specials from './Specials';
 import Features from './Features';
 import Loader from '../Loader';
+
 const Home = () => {
   const [ loading, setLoading ] = useState(true)
 
@@ -12,10 +13,10 @@ const Home = () => {
       setLoading(false)
     }, 1000)
   },[])
-
+  
   return <>
   { loading ? <Loader /> : <div>
-    <main className='relative home-screen flex justify-center items-center'>
+    <main className={`relative home-screen flex justify-center items-center`}>
       <img src="/images/background.jpg" alt='background' className='absolute top-0' />
       
       <div className="circle"></div>

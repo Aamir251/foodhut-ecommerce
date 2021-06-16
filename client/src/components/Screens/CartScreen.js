@@ -53,7 +53,7 @@ const CartScreen = () => {
                     <button onClick={()=> proceedToCheckout()} className="font-bold text-primary text-xs md:text-sm btn">Proceed To Checkout</button>
                 </header>
             
-                {cart.length ===0 ? <p>Your Cart Is Empty</p> :
+                {cart.length ===0 ? <h2 className='text-center font-bold text-2xl'>Your Cart Is Empty</h2> :
                     <section className="relative px-5 lg:w-2/3 xs:w-full mx-auto">
                         {cart.map((item) => (
                             // Here, product means the item key

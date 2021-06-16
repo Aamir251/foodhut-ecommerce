@@ -40,9 +40,9 @@ const ProductScreen = () => {
                         <p className='text-gray leading-relaxed xs:text-xs md:text-sm lg:w-full lg:leading-loose opacity-70 '>{product.description}</p>
                         <p className='text-secondary text-xl lg:text-2xl  font-bold pt-3'>Rs.{product.price}</p><Rating value={product.rating}/>
                         <span className="text-primary ">Quantity</span>
-                        <select id="quantity" value={quantity} onChange= {(e) => setQuantity(e.target.value)} className="pl-2 ml-2 font-bold shadow bg-secondary text-white">
+                        {product.countInStock ? <select id="quantity" value={quantity} onChange= {(e) => setQuantity(e.target.value)} className="pl-2 ml-2 font-bold shadow bg-secondary text-white">
                             { [...Array(product.countInStock).keys()].map(value => ( <option value={ value + 1 }>{value + 1} </option>) ) }
-                        </select>
+                        </select> : <span className='opacity-50 ml-5'>Not Available</span>}
                     </footer>
                     </div>
                     <CartButton countInStock={product.countInStock} addToCartHandler={addToCartHandler}/>

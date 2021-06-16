@@ -266,6 +266,8 @@ nav ul {
   width: 100%;
   z-index: -50;
 }
+
+
 .specials {
   font-family: "Poppins", sans-serif;
 }
@@ -288,15 +290,36 @@ hr {
 }
 .specials article img {
   width: 50%;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
 }
-
+.specials.active article img {
+  transform: translateX(0%);
+}
 .specials article p {
   width: 60%;
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+}
+.specials.active article p {
+  transform: translateX(0%);
 }
 
 .features-section article img {
   border-radius: 100%;
   width: 80%;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.features-section.active article img {
+  transform: translateX(0%);
+}
+.features-section article div {
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+}
+.features-section.active article div {
+  transform: translateX(0%);
 }
 .features-section .glass-container {
   z-index: 5;
@@ -336,7 +359,9 @@ hr {
  
   z-index: 0;
 }
-
+.cart-btn .btn {
+  width: 120px;
+}
 .products .circle:nth-of-type(2){
   top: 15%;
   left: 15%;
@@ -421,10 +446,19 @@ hr {
     height: 100%;
     text-align: center;
   }
-
+  .home-screen article {
+    transform: translateY(0);
+    opacity: 1;
+  }
+ 
   .specials article img {
     width: 60%;
+    
   }
+  
+  
+  
+
   .specials article p {
     width: 60%;
   }

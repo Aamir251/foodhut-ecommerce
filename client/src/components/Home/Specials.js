@@ -1,8 +1,11 @@
 import React from 'react';
+import ScrollReveal  from 'scrollreveal'
 
 const Specials = () => {
+
+    ScrollReveal().reveal('.specials',{delay : 500})
     return (
-        <section className='specials relative'>
+        <section className='specials reveals relative'>
             <img src='/images/formbackground.jpg' alt='background' className='absolute h-screen top-0'/>
             <h3 className='text-center text-2xl font-bold py-3'>Special Delights</h3>
             <div className='glass-container relative grid md:grid-cols-2 pb-4'>

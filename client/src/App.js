@@ -14,6 +14,24 @@ import OrderScreen from './components/Screens/OrderScreen';
 import Loader from './components/Loader';
 
 const App = () => {
+
+  
+  const reveal = () => {
+    const reveals = document.querySelectorAll('.reveals')
+    
+    let point = 150; 
+    
+    for (let i = 0; i < reveals.length; i++) {
+      let windowHeight = window.innerHeight;
+      let revealTop = reveals[i].getBoundingClientRect().top
+      if (revealTop < windowHeight - point) {
+        reveals[i].classList.add('active')
+      } else {
+        reveals[i].classList.remove('active')
+      }
+    }
+  }
+  window.addEventListener('scroll', reveal)
   return <Router>
     <Header />
     <Switch>

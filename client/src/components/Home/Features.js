@@ -2,7 +2,7 @@ import React from 'react';
 
 const Features = () => {
     return (
-        <section className='features-section relative pt-10'>
+        <section className='features-section reveals relative pt-10'>
             <div className='glass-container mt-5'>
             <h1 className='text-center font-bold text-3xl pt-4'>Our Features</h1>
                 <div>
