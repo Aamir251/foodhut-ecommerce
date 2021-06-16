@@ -1,0 +1,11 @@
+{
+  "name": "foothut",
+  "version": "1.0.0",
+  "description": "mern stack ecommerce website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Aamir251",
+  "license": "ISC"
+}
