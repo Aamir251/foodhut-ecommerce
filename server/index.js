@@ -14,6 +14,9 @@ app.use(bodyParser.urlencoded({extended : true}))
 app.use(express.json())
 dotenv.config()
 app.use(cors())
+app.get("/",(req,res) => {
+    res.send("Welcome To Food Hut")
+})
 app.use("/menu", foodRoutes);
 app.use("/users", userRoutes)
 app.use("/orders", orderRoutes)
